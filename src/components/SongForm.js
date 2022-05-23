@@ -40,7 +40,7 @@ const SongForm = ({ handleSearch }) => {
         <input
           type="text"
           name="song"
-          placeholder="Nombre del canción"
+          placeholder="Nombre de la canción"
           onChange={handleChange}
           value={form.song}
         />
