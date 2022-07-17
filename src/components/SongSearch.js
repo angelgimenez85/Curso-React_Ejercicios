@@ -18,12 +18,17 @@ const SongSearch = () => {
       const artistUrl = `https://www.theaudiodb.com/api/v1/json/2/search.php?s=${artist}`;
       const songUrl = `https://api.lyrics.ovh/v1/${artist}/${song}`;
 
-      const resp = await fetch(artistUrl).then((res) =>
-        res.json().then((artistRes) => setBio(artistRes))
+      setLoading(true);
+
+      const resp = await fetch(artistUrl).then(
+        (res) => res.json().then((artistRes) => setBio(artistRes))
+        //res.json().then((artistRes) => console.log(artistRes.artists[0].strBiographyES))
       );
       const resp2 = await fetch(songUrl).then((res) =>
         res.json().then((songRes) => setLyric(songRes))
       );
+      setLoading(false);
+
       /*
       setLoading(true);
       const [artistRes, songRes] = await Promise.all([
@@ -39,7 +44,7 @@ const SongSearch = () => {
   }, [search]);
 
   const handleSearch = (data) => {
-    console.log(data);
+    //console.log(data);
     setSearch(data);
   };
 
@@ -48,7 +53,9 @@ const SongSearch = () => {
       <h2>Song Search</h2>
       {loading && <Loader />}
       <SongForm handleSearch={handleSearch} />
-      <SongDetail search={search} lyric={lyric} bio={bio} />
+      {search && !loading && (
+        <SongDetail search={search} lyric={lyric} bio={bio} />
+      )}
     </div>
   );
 };
