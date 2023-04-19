@@ -6,8 +6,8 @@ const SongDetail = ({search, lyric, bio}) => {
   return (
     <div>
       <h2>Detalle:</h2>
-      <SongArtist />
-      <SongLyric />
+      <SongArtist bio={bio}/>
+      <SongLyric lyric={lyric}/>
     </div>
   );
 };

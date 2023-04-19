@@ -20,13 +20,20 @@ const SongSearch = () => {
 
       setLoading(true);
 
-      const resp = await fetch(artistUrl).then(
-        (res) => res.json().then((artistRes) => setBio(artistRes))
-        //res.json().then((artistRes) => console.log(artistRes.artists[0].strBiographyES))
+      await fetch(artistUrl).then(
+        res => res.json().then(artistRes => {
+            setBio(artistRes.artists[0].strBiographyES);
+            console.log(artistRes.artists[0].strBiographyES);
+        })
       );
-      const resp2 = await fetch(songUrl).then((res) =>
-        res.json().then((songRes) => setLyric(songRes))
+
+      await fetch(songUrl).then(
+        res => res.json().then(songRes => {
+          //setLyric(songRes);
+          console.log(songRes);
+        })
       );
+
       setLoading(false);
 
       /*
