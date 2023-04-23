@@ -13,10 +13,10 @@ const SelectsAnidados = () => {
   return (
     <div>
       <h2>Selects Anidados</h2>
-      <h3>México</h3>
-      <SelectList label='Estados' url='' handleChange={(e) => {setState(e.target.value)}}/>
-      {state && <SelectList label='Municipios' url='' />}
-      {town && <SelectList label='Colonias' url='' handleChange={(e) => {setSuburb(e.target.value)}}/>}
+      <h3>Argentina</h3>
+      <SelectList label='Provincias' url='https://apis.datos.gob.ar/georef/api/provincias' handleChange={(e) => {setState(e.target.value)}}/>
+      {state && <SelectList label='Departamentos' url={`https://apis.datos.gob.ar/georef/api/departamentos?provincia=${state}&max=500`} />}
+      {town && <SelectList label='Localidades' url={`https://apis.datos.gob.ar/georef/api/localidades?provincia=${state}&departamento=${town}&max=500`} handleChange={(e) => {setSuburb(e.target.value)}}/>}
       <pre>
         <code>
           {state} - {town} - {suburb}
