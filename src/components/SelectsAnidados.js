@@ -5,10 +5,6 @@ const SelectsAnidados = () => {
   const { state, setState } = useState('');
   const { town, setTown } = useState('');
   const { suburb, setSuburb } = useState('');
-
-  const handleChange=(e) => {
-    setTown(e.target.value);
-  };
   
   return (
     <div>
