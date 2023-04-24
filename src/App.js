@@ -4,6 +4,7 @@ import SongSearch from './components/SongSearch';
 import CrudApp from './components/CrudApp';
 import CrudApi from './components/CrudApi';
 import SelectsAnidados from './components/SelectsAnidados';
+import Tabs from './components/Tabs';
 
 export default function App() {
   return (
@@ -17,6 +18,8 @@ export default function App() {
       <CrudApi />
       <hr />
       <CrudApp />
+      <hr />
+      <Tabs/>
     </div>
   );
 }
