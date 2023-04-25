@@ -2,6 +2,7 @@ import React from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 
+// link: https://www.npmjs.com/package/react-tabs
 export default () => (
   <div>
     <h2>Pestañas</h2>
